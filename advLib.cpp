@@ -30,13 +30,13 @@ public :
 
     //getter
     void showAtr(){
-        cout << "\n  Indeks buku ke-" << Indeks << endl; Sleep(jeda/10);
-        cout << "\tPenulis  : " << this->Penulis << endl; Sleep(jeda/9);
-        cout << "\tTahun    : " << this->Tahun << endl; Sleep(jeda/8);
-        cout << "\tJudul    : " << this->Judul << endl; Sleep(jeda/7);
-        cout << "\tKota     : " << this->Kota << endl; Sleep(jeda/6);
-        cout << "\tPenerbit : " << this->Penerbit << endl; Sleep(jeda/5);
-        cout << "\tHalaman  : " << this->Halaman << endl; Sleep(jeda/4);
+        cout << "\n  Kategori " << Kategori << " indeks buku ke-" << Indeks << endl; Sleep(jeda/10);
+        cout << "\tPenulis  : " << Penulis << endl; Sleep(jeda/8);
+        cout << "\tTahun    : " << Tahun << endl; Sleep(jeda/7);
+        cout << "\tJudul    : " << Judul << endl; Sleep(jeda/6);
+        cout << "\tKota     : " << Kota << endl; Sleep(jeda/5);
+        cout << "\tPenerbit : " << Penerbit << endl; Sleep(jeda/4);
+        cout << "\tHalaman  : " << Halaman << endl; Sleep(jeda/3);
         Sleep(jeda*2/3);
     }
 
@@ -53,7 +53,9 @@ public :
     }
 };
 
-Perpus Buku[200];
+Perpus Buku[256];
+
+
 int initRepo(int n){
     //Kategori Teknologi
     Buku[n++].setAtr("Teknologi", 1, "Dr. Deni Darmawan, S.Pd., M.Si", 2011, "Teknologi Pembelajaran", "Jakarta", "Remaja Rosdakarya", 112);
@@ -99,19 +101,17 @@ int initRepo(int n){
     Buku[n++].setAtr("Fiksi", 5, "Phillip Pulman", 2015, "Evermore", "Jakarta", "Mitra Pemuda", 159);
     return n;
 }
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
+
 void intro(int n){
-    cout << "[VIRTUAL LIBRARY]\n" << endl;
+    cout << "[ZARA VIRTUAL LIBRARY]\n" << endl;
     cout << "  Banyaknya buku : " << n << endl;
     cout << "  Available list :" << endl;
     cout << "    1. Cari buku" << endl;
     cout << "    2. Tambahkan buku" << endl;
     cout << "    3. Tambahkan kategori baru" << endl;
-    cout << "    4. Tampilkan semua buku" << endl;
-    cout << "    5. Keluar" << endl;
+    cout << "    4. Tampilkan daftar kategori" << endl;
+    cout << "    5. Tampilkan semua buku" << endl;
+    cout << "    6. Keluar" << endl;
     cout << "  Masukkan pilihan : ";
 }
 
@@ -119,20 +119,15 @@ void outro(){
     cout << "\nProgram dihentikan...";
     getch();
 }
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
+
 int cekIndeks(string kat, int n){
     int found = 0;
     for (int i = 0 ; i<n ; i++){
         if (Buku[i].getKategori()==kat){
-            Buku[i].showAtr();
             found++;
         }
     }
-
-    return ++found;
+    return found;
 }
 
 void cariKategori(string kat, int n){
@@ -150,7 +145,7 @@ void cariKategori(string kat, int n){
     }
     getch();
 }
-///////////////////////////////////////////////////////////////////////
+
 void cariPenulis(string pen, int n){
     int cari, found = 0;  //jumlah buku yg ditemukan
     for (int i = 0 ; i<n ; i++){
@@ -167,7 +162,7 @@ void cariPenulis(string pen, int n){
     }
     getch();
 }
-///////////////////////////////////////////////////////////////////////
+
 void cariJudul(string ju, int n){
     int cari, found = 0;
     for (int i = 0 ; i<n ; i++){
@@ -184,17 +179,14 @@ void cariJudul(string ju, int n){
     }
     getch();
 }
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
+
 int addBuku(int n){
     char kat[128], na[128], ju[128], ko[128], pen[128];
     int in, ta, hal;
 
     cout << "Masukkan atribut buku sebagai berikut :" << endl;
     cout << "\tKategori : ";
-    //cin.ignore();
+    cin.ignore();
     cin.get(kat,127);
     cout << "\tPenulis  : ";
     cin.ignore();
@@ -214,7 +206,7 @@ int addBuku(int n){
     cin >> hal;
 
     //kat compare and counter (kat autoindexing)
-    in = cekIndeks(kat, n);
+    in = 1+cekIndeks(kat, n);
     Buku[n++].setAtr(kat, in, na, ta, ju, ko, pen, hal);
     getch();
     system("cls");
@@ -222,6 +214,19 @@ int addBuku(int n){
 }
 
 int addKategori(int n){
+    char kat[128];
+    int in;
+
+    cout << "Masukkan nama kategori baru : " << endl;
+    cin.ignore();
+    cin.get(kat,127);
+    in = cekIndeks(kat, n);
+    if (in==0){
+        cout << "Kategori \"" << kat << "\"ditambahkan, daftar kategori diperbarui" << endl;
+        //need more setter for Kat list
+    } else {
+        cout << "Kategori \"" << kat << "\"tidak dapat ditambahkan karena sudah ada" << endl;
+    }
 
     getch();
     system("cls");
@@ -235,11 +240,8 @@ void showAllBuku(int n){
     system("cls");
 }
 
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
 int main(){
-    int n_Buku = 0;   //banyaknya buku
+    int n_Buku = 0;   //banyaknya buku & kategori
     n_Buku = initRepo(n_Buku);
     char jwb[128];
     int pil_A, pil_B;
@@ -286,12 +288,14 @@ int main(){
             n_Buku = addBuku(n_Buku);
         } else if (pil_A==3){ //tambahkan kategori baru
             n_Buku = addKategori(n_Buku);
-        } else if (pil_A==4){ //tampilkan semua buku
+        } else if (pil_A==4){ //tampilkan daftar kategori
+
+        } else if (pil_A==5){ //tampilkan semua buku
             showAllBuku(n_Buku);
-        } else if (pil_A==5){ //keluar
+        } else if (pil_A==6){ //keluar
             outro();
         }
-    } while(pil_A!=5);
+    } while(pil_A!=6);
 
     return 0;
 }
