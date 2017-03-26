@@ -7,10 +7,10 @@ using namespace std;
 
 int jeda = 420;
 
-class Daftar{
+struct Daftar{
+private :
     string Nama;
     int Jumlah;
-
 public :
     void setNamaKat(string n){
         this->Nama = n;
@@ -32,7 +32,6 @@ public :
 class Perpus{
     int Indeks, Tahun, Halaman;
     string Penulis, Judul, Kota, Penerbit, Kategori;
-
 public :
     void setAtr(string kat, int in, string na, int ta, string ju, string ko, string pen, int hal){
         this->Kategori = kat;
