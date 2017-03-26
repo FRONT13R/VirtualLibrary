@@ -112,7 +112,7 @@ int initRepo(int n){
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 void intro(int n){
-    cout << "[ZARA VIRTUAL LIBRARY]\n" << endl;
+    cout << "[VIRTUAL LIBRARY]\n" << endl;
     cout << "Available list :" << endl;
     cout << "  1. Cari buku" << endl;
     cout << "  2. Tambahkan buku" << endl;
