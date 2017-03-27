@@ -1,4 +1,4 @@
-//DONE
+//DONE simplified version
 #include <iostream>  //getline(), cin, cout
 #include <conio.h>   //getch()
 #include <string.h>  //find
@@ -135,10 +135,7 @@ void intro(int n, int k){
 void cariKategori(string kat, int n){
     int found = 0;
     for (int i = 0 ; i<n ; i++){
-        if (Buku[i].getKategori()==kat){
-            Buku[i].showAtr();
-            found++;
-        }
+        if (Buku[i].getKategori()==kat){ Buku[i].showAtr(); found++; }
     }
     if (found==0){
         cout << "\n- Buku dengan kategori \"" << kat << "\" tidak dapat ditemukan." << endl;
@@ -152,10 +149,7 @@ void cariPenulis(string pen, int n){
     int cari, found = 0;
     for (int i = 0 ; i<n ; i++){
         cari = Buku[i].getPenulis().find(pen);
-        if (cari!=string::npos){
-            Buku[i].showAtr();
-            found++;
-        }
+        if (cari!=string::npos){ Buku[i].showAtr(); found++; }
     }
     if (found==0){
         cout << "\n- Buku dengan nama penulis \"" << pen << "\" tidak dapat ditemukan." << endl;
@@ -169,10 +163,7 @@ void cariJudul(string ju, int n){
     int cari, found = 0;
     for (int i = 0 ; i<n ; i++){
         cari = Buku[i].getJudul().find(ju);
-        if (cari!=string::npos){
-            Buku[i].showAtr();
-            found++;
-        }
+        if (cari!=string::npos){ Buku[i].showAtr(); found++; }
     }
     if (found==0){
         cout << "\n- Buku dengan judul \"" << ju << "\" tidak dapat ditemukan." << endl;
@@ -291,10 +282,7 @@ int main(){
         } else if (pil_A==3){ n_Kat = addKategori(n_Buku, n_Kat);
         } else if (pil_A==4){ showDaftarKat(n_Kat);
         } else if (pil_A==5){ showAllBuku(n_Buku);
-        } else if (pil_A==6){
-            cout << "\nProgram dihentikan...";
-            getch();
-        }
+        } else if (pil_A==6){ cout << "\nProgram dihentikan..."; getch(); }
     } while(pil_A!=6);
     return 0;
 }
