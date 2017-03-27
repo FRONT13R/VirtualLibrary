@@ -57,10 +57,12 @@ int cekIndeks(string kat, int n){
     return found;
 }
 
-int cekJudul(string ju, int n){
+int cekJudul(string ju, string kat, int n){
     int found = 0;
     for (int i = 0 ; i<n ; i++){
-        if (Buku[i].getJudul()==ju){ found++; }
+        if (Buku[i].getKategori()==kat){
+            if (Buku[i].getJudul()==ju){ found++; }
+        }
     }
     return found;
 }
@@ -189,7 +191,7 @@ int addBuku(int n, int k){
     cin.ignore();
     cin.get(kat,127);
     int kat_found = cekKategori(kat, k);
-    int ju_found = cekJudul(ju, n);
+    int ju_found = cekJudul(ju, kat, n);
     if (kat_found!=0){
         cout << "\tJudul    : ";
         cin.ignore();
