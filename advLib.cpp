@@ -1,8 +1,8 @@
 //DONE
 #include <iostream>  //getline(), cin, cout
 #include <conio.h>   //getch()
-#include <windows.h> //system("cls"), Sleep()
 #include <string.h>  //find
+#include <windows.h> //system("cls"), Sleep()
 using namespace std;
 
 int jeda = 420;
@@ -240,7 +240,6 @@ int addBuku(int n, int k){
     } else {
         cout << "Anda harus menambahkan Kategori \"" << kat << "\" terlebih dahulu." << endl;
     }
-
     getch();
     system("cls");
     return n;
