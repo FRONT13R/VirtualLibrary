@@ -1,5 +1,5 @@
 //DONE simple version
-#include <iostream>  //getline(), cin, cout
+#include <iostream>  //get(), cin, cout
 #include <conio.h>   //getch()
 #include <string.h>  //find
 #include <windows.h> //system("cls"), Sleep()
