@@ -287,14 +287,10 @@ int main(){
                 }
                 system("cls");
             } while(pil_B!=4);
-        } else if (pil_A==2){
-            n_Buku = addBuku(n_Buku, n_Kat);
-        } else if (pil_A==3){
-            n_Kat = addKategori(n_Buku, n_Kat);
-        } else if (pil_A==4){
-            showDaftarKat(n_Kat);
-        } else if (pil_A==5){
-            showAllBuku(n_Buku);
+        } else if (pil_A==2){ n_Buku = addBuku(n_Buku, n_Kat);
+        } else if (pil_A==3){ n_Kat = addKategori(n_Buku, n_Kat);
+        } else if (pil_A==4){ showDaftarKat(n_Kat);
+        } else if (pil_A==5){ showAllBuku(n_Buku);
         } else if (pil_A==6){
             cout << "\nProgram dihentikan...";
             getch();
