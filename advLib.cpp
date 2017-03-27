@@ -13,11 +13,11 @@ private :
     int Jumlah;
 public :
     void setNamaKat(string n){
-        this->Nama = n;
+        Nama = n;
     }
 
     void setJumlahBuku(int j){
-        this->Jumlah = j;
+        Jumlah = j;
     }
 
     string getNamaKat(){
@@ -34,14 +34,14 @@ class Perpus{
     string Penulis, Judul, Kota, Penerbit, Kategori;
 public :
     void setAtr(string kat, int in, string na, int ta, string ju, string ko, string pen, int hal){
-        this->Kategori = kat;
-        this->Indeks = in;
-        this->Penulis = na;
-        this->Tahun = ta;
-        this->Judul = ju;
-        this->Kota = ko;
-        this->Penerbit = pen;
-        this->Halaman = hal;
+        Kategori = kat;
+        Indeks = in;
+        Penulis = na;
+        Tahun = ta;
+        Judul = ju;
+        Kota = ko;
+        Penerbit = pen;
+        Halaman = hal;
     }
 
     void showAtr(){
@@ -56,15 +56,15 @@ public :
     }
 
     string getKategori(){
-        return this->Kategori;
+        return Kategori;
     }
 
     string getPenulis(){
-        return this->Penulis;
+        return Penulis;
     }
 
     string getJudul(){
-        return this->Judul;
+        return Judul;
     }
 };
 
