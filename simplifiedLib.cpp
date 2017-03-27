@@ -57,6 +57,14 @@ int cekIndeks(string kat, int n){
     return found;
 }
 
+int cekJudul(string ju, int n){
+    int found = 0;
+    for (int i = 0 ; i<n ; i++){
+        if (Buku[i].getJudul()==ju){ found++; }
+    }
+    return found;
+}
+
 int cekKategori(string kat, int k){
     int found = 0;
     for (int i = 0 ; i<k ; i++){
@@ -180,26 +188,31 @@ int addBuku(int n, int k){
     cout << "\tKategori : ";
     cin.ignore();
     cin.get(kat,127);
-    int found = cekKategori(kat, k);
-    if (found!=0){
-        cout << "\tPenulis  : ";
-        cin.ignore();
-        cin.get(na,127);
-        cout << "\tTahun    : ";
-        cin >> ta;
+    int kat_found = cekKategori(kat, k);
+    int ju_found = cekJudul(ju, n);
+    if (kat_found!=0){
         cout << "\tJudul    : ";
         cin.ignore();
         cin.get(ju,127);
-        cout << "\tKota     : ";
-        cin.ignore();
-        cin.get(ko,127);
-        cout << "\tPenerbit : ";
-        cin.ignore();
-        cin.get(pen,127);
-        cout << "\tJumlah Halaman  : ";
-        cin >> hal;
-        Buku[n++].setAtr(kat, ++in, na, ta, ju, ko, pen, hal);
-        cout << "+ Buku berhasil ditambahkan";
+        if (ju_found!=0){
+            cout << "\tPenulis  : ";
+            cin.ignore();
+            cin.get(na,127);
+            cout << "\tTahun    : ";
+            cin >> ta;
+            cout << "\tKota     : ";
+            cin.ignore();
+            cin.get(ko,127);
+            cout << "\tPenerbit : ";
+            cin.ignore();
+            cin.get(pen,127);
+            cout << "\tJumlah Halaman  : ";
+            cin >> hal;
+            Buku[n++].setAtr(kat, ++in, na, ta, ju, ko, pen, hal);
+            cout << "+ Buku berhasil ditambahkan";
+        } else {
+            cout << "- Tidak dapat menambahkan buku, karena judul tersebut sudah ada." << endl;
+        }
     } else {
         cout << "Anda harus menambahkan Kategori \"" << kat << "\" terlebih dahulu." << endl;
     }
