@@ -1,4 +1,4 @@
-//DONE
+//simplified ver : https://github.com/FRONT13R/VirtualLibrary/blob/master/simplifiedLib.cpp
 #include <iostream>  //getline(), cin, cout
 #include <conio.h>   //getch()
 #include <string.h>  //find
