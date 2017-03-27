@@ -196,7 +196,7 @@ int addBuku(int n, int k){
         cout << "\tJudul    : ";
         cin.ignore();
         cin.get(ju,127);
-        if (ju_found!=0){
+        if (ju_found==0){
             cout << "\tPenulis  : ";
             cin.ignore();
             cin.get(na,127);
