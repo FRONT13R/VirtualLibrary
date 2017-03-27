@@ -285,6 +285,9 @@ int main(){
                     cin.ignore();
                     cin.get(jwb,127);
                     cariJudul(jwb, n_Buku);
+                } else if (pil_B==4){
+                    cout << "Tunggu sebentar..." << endl;
+                    Sleep(jeda*2/3);
                 }
                 system("cls");
             } while(pil_B!=4);
