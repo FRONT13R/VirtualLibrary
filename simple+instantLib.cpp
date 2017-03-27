@@ -1,8 +1,8 @@
 //DONE simple+instant version
-#include <iostream>  //getline(), cin, cout
-#include <conio.h>   //getch()
+#include <iostream> //getline(), cin, cout
+#include <conio.h>  //getch()
 #include <stdlib.h> //system("cls")
-#include <string.h>  //find
+#include <string.h> //find
 using namespace std;
 
 struct Daftar{
