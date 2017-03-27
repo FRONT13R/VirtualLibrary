@@ -2,7 +2,7 @@
 #include <iostream>  //getline(), cin, cout
 #include <conio.h>   //getch()
 #include <string.h>  //find
-#include <windows.h> //system("cls"), Sleep()
+#include <windows.h> //system("cls")
 using namespace std;
 
 struct Daftar{
