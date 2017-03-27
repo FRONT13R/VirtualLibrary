@@ -52,9 +52,7 @@ Daftar Kategori[128];
 int cekIndeks(string kat, int n){
     int found = 0;
     for (int i = 0 ; i<n ; i++){
-        if (Buku[i].getKategori()==kat){
-            found++;
-        }
+        if (Buku[i].getKategori()==kat){ found++; }
     }
     return found;
 }
@@ -62,9 +60,7 @@ int cekIndeks(string kat, int n){
 int cekKategori(string kat, int k){
     int found = 0;
     for (int i = 0 ; i<k ; i++){
-        if (Kategori[i].getNamaKat()==kat){
-            found++;
-        }
+        if (Kategori[i].getNamaKat()==kat){ found++; }
     }
     return found;
 }
@@ -249,9 +245,7 @@ void showDaftarKat(int k){
 }
 
 void showAllBuku(int n){
-    for (int i = 0 ; i<n ; i++){
-        Buku[i].showAtr();
-    }
+    for (int i = 0 ; i<n ; i++){ Buku[i].showAtr(); }
     getch();
     system("cls");
 }
