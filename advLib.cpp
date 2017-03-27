@@ -236,6 +236,7 @@ int addBuku(int n, int k){
         cout << "\tJumlah Halaman  : ";
         cin >> hal;
         Buku[n++].setAtr(kat, ++in, na, ta, ju, ko, pen, hal);
+        cout << "+ Buku berhasil ditambahkan";
     } else {
         cout << "Anda harus menambahkan Kategori \"" << kat << "\" terlebih dahulu." << endl;
     }
