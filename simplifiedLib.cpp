@@ -1,4 +1,4 @@
-//DONE simplified version
+//DONE simple version
 #include <iostream>  //getline(), cin, cout
 #include <conio.h>   //getch()
 #include <string.h>  //find
